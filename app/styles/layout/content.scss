@@ -1,0 +1,168 @@
+.prodList {
+	margin-top: 15px;
+
+	li {
+		margin-bottom: 60px;
+		text-align: center;
+		color: $font-gray-dark;
+
+		p {
+			font-size: 12px;
+			font-weight: bold;
+
+			b {
+				font-size: 22px;
+				font-weight: bold;
+			}
+		}
+
+		span {
+			color: $font-gray-light;
+			letter-spacing: -1px;
+		}
+	}
+}
+
+.prodBuy {
+	h1 {
+		text-align: center;
+		font-size: 26px;
+		font-weight: bold;
+		color: $font-white;
+		height: 140px;
+		line-height: 140px;
+		position: relative;
+
+		.bag {
+			position: relative;
+			display: inline-block;
+
+			img {
+				margin: -10px 10px 0 0;
+			}
+
+			.count {
+				width: 18px;
+				height: 18px;
+				line-height: 18px;
+				background-color: $font-yellow;
+				border-radius: 50%;
+				position: absolute;
+				top: 75px;
+    			left: 20px;
+				font-size: 11px;
+				color: $font-black;
+			}
+		}
+	}
+
+	li {
+		height: 100px;
+		line-height: 100px;
+		border-top: 2px solid $font-black-light;
+		position: relative;
+		margin: 0 20px;
+		 
+		.close {
+			color: $font-black;
+			opacity: 1;
+			text-shadow: none;
+			font-size: 26px;
+			margin-top: 10px;
+		}
+
+		.price {
+			color: $font-yellow;
+			position: absolute;
+			bottom: 10px;
+			right: 0;
+			font-weight: bold;
+		}
+
+		img {
+			padding-right: 15px;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		p {
+			display: inline-block;
+			line-height: 18px;
+			vertical-align: middle;
+			max-width: 60%;
+			font-size: 12px;
+
+			b {
+				color: $font-white;
+			}
+
+			span {
+				color: $font-gray-light;
+				font-size: 12px;
+			}
+
+		}
+
+		&:last-child {
+			border-bottom: 2px solid $font-black-light;
+		}
+	}
+
+	.quit {
+		background-color: $font-black-light;
+		opacity: 0.5;
+		margin-left: 0;
+		margin-right: 0;
+		padding: 0 20px;
+
+		.price {
+			right: 20px;
+		}
+
+		.close {
+			color: $font-white;
+			opacity: 1;
+
+			&:focus {
+				outline: none;
+			}
+		}
+
+		p {
+			text-decoration: line-through;
+		}
+	}
+}
+
+.subtotal {
+	display: block;
+	margin: 30px 20px;
+
+	.sub {
+		font-size: 14px;
+	}
+
+	p {
+		line-height: normal;
+		text-transform: uppercase;
+		text-align: right;
+		color: $font-gray-light;
+		font-size: 11px;
+
+		.total {
+			color: $font-yellow;
+			font-size: 24px;
+			font-weight: bold;
+		}
+	}
+}
+
+.btn {
+	margin-top: 70px;
+}
+
+.sep {
+	width: 15px;
+	height: 2px;
+	background-color: $font-red;
+}

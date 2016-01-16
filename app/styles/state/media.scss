@@ -1,0 +1,34 @@
+@media screen and (max-width: 767px) {
+	body, html {
+		background-color: #212124;
+	}
+	.right {
+		margin-left: -15px;
+		margin-right: -15px;
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.container {
+		max-width: 730px;
+		padding: 0;
+	}
+	.row {
+		margin-left: -15px;
+    	margin-right: -15px;
+	}
+	.right {
+		width: 70.5%;
+	}
+	.prodBuy {
+	    li {					
+	    	p {
+	    		font-size: 14px;
+	    		max-width: 70%;
+	    	}
+	    	.price {
+	    		bottom: 20px;
+	    	}
+	    }
+	}
+}
