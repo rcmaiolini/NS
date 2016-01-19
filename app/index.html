@@ -1,98 +1,101 @@
 <!doctype html>
 <html class="no-js" lang="">
-  <head>
-    <meta charset="utf-8">
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Netshoes</title>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Netshoes</title>
 
-    <link rel="shortcut icon" href="favicon.ico">
-    <!-- Place favicon.ico in the root directory -->
+  <link rel="shortcut icon" href="favicon.ico">
+  <!-- Place favicon.ico in the root directory -->
 
-    <!-- build:css styles/vendor.css -->
-    <!-- bower:css -->
-    <!-- endbower -->
-    <!-- endbuild -->
+  <!-- build:css styles/vendor.css -->
+  <!-- bower:css -->
+  <!-- endbower -->
+  <!-- endbuild -->
 
-    <!-- build:css styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
-    <!-- endbuild -->
-    
-    <!-- build:js scripts/vendor/modernizr.js -->
-    <script src="/bower_components/modernizr/modernizr.js"></script>
-    <!-- endbuild -->
-  </head>
-  <body>
+  <!-- build:css styles/main.css -->
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- endbuild -->
+
+  <!-- build:js scripts/vendor/modernizr.js -->
+  <script src="/bower_components/modernizr/modernizr.js"></script>
+  <!-- endbuild -->
+</head>
+<body>
     <!--[if lt IE 10]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
-    
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          
-          <div class="hidden-xs col-sm-3 col-lg-3 left"> 
-            <ul class="prodList">
-              <script id="leftProdTmpl" type="text/x-jquery-tmpl">
-                <li>
-                  <img src="${imgBig}">
-                  <h5>${title} </br> ${style}</h5> 
-                  <div class='sep center-block'></div>
-                  <p>${currencyFormat} <b>${currencyPrice}</b></p>
-                  <span>ou 3 x de ${currencyFormat} 25,00</span>
-                </li>
-              </script>
-            </ul>
-          </div>
-          <div class="col-sm-9 col-lg-9 right">
-            <ul class="prodBuy">
+      <![endif]-->
+
+      <script id="leftProdTmpl" type="text/x-jquery-tmpl">
+        <li>
+          <img src="${imgBig}">
+          <h5>${title} </br> ${style}</h5> 
+          <div class='sep center-block'></div>
+          <p>${currencyFormat} <b>${currencyPrice}</b></p>
+          <button type="button" class="btn btn-default btn-xs add" data-id="${id}">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Adicionar
+          </button>
+          <span class="leftInstallments">ou ${installments} X de ${currencyFormat} ${installmentsPrice}</span>
+        </li>
+      </script>
+
+      <script id="rightProdTmpl" type="text/x-jquery-tmpl">
+        <li>
+          <button type="button" class="close" aria-label="Close" data-id="${id}"><span aria-hidden="true">&times;</span></button>
+          <img src="${imgSmall}">
+          <p>
+            <b>${title} ${description}</b></br>
+            <span>${availableSizes[0]} | ${style}</span></br>
+            <span>Quantidade: ${qtd}</span>
+          </p>
+          <p class="pull-right price" data-price="${price}">${currencyFormat} ${currencyPrice}</p>
+        </li>
+      </script>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+
+            <div class="hidden-xs col-sm-3 col-lg-3 left"> 
+              <ul class="prodList"></ul>
+            </div>
+            <div class="col-sm-9 col-lg-9 right">
               <h1>
                 <div class="bag">
                   <img src="images/ico-bag.png" alt="">
-                  <span class="count"></span>
+                  <span class="count">0</span>
                 </div>
                 SACOLA
               </h1>
-              <script id="rightProdTmpl" type="text/x-jquery-tmpl">
-                <li>
-                  <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                  <img src="${imgSmall}">
-                  <p>
-                    <b>${title} ${description}</b></br>
-                    <span>${availableSizes[0]} | ${style}</span></br>
-                    <span>Quantidade: 1</span>
-                  </p>
-                  <p class="pull-right price" data-price="${price}">${currencyFormat} ${currencyPrice}</p>
-                </li>
-              </script>
-            </ul>
-            <div class="subtotal clearfix">
-              <p class="pull-left sub">Subtotal</p>
-              <p class="pull-right val"><span class="total"></span> <br> ou em ate 10 x de <span class="installments"></span></p>
-              <button type="button" class="btn btn-default btn-lg btn-block">COMPRAR</button>
+              <ul class="prodBuy"></ul>
+              <div class="subtotal clearfix">
+                <p class="pull-left sub">Subtotal</p>
+                <p class="pull-right val"><span class="total"></span> <br> <span class="rightInstallments"></span></p>
+                <button type="button" class="btn btn-default btn-lg btn-block">COMPRAR</button>
+              </div>
+
             </div>
 
           </div>
-          
         </div>
-      </div>
-    </div>          
+      </div>          
 
-    <!-- build:js scripts/vendor.js -->
-    <!-- bower:js -->
-    <script src="/bower_components/jquery/dist/jquery.js"></script>
-    <script src="/bower_components/jquery-tmpl/jquery.tmpl.js"></script>
-    <script src="/bower_components/globalize/lib/globalize.js"></script>
-    <script src="/bower_components/globalize/lib/cultures/globalize.culture.pt-BR.js"></script>
-    <!-- endbower -->
-    <!-- endbuild -->
-    
-    <!-- build:js scripts/plugins.js -->
+      <!-- build:js scripts/vendor.js -->
+      <!-- bower:js -->
+      <script src="/bower_components/jquery/dist/jquery.js"></script>
+      <script src="/bower_components/jquery-tmpl/jquery.tmpl.js"></script>
+      <script src="/bower_components/globalize/lib/globalize.js"></script>
+      <script src="/bower_components/globalize/lib/cultures/globalize.culture.pt-BR.js"></script>
+      <!-- endbower -->
+      <!-- endbuild -->
 
-    <!-- endbuild -->
-    
-    <!-- build:js scripts/main.js -->
-    <script src="scripts/main.js"></script>
-    <!-- endbuild -->
-  </body>
-</html>
+      <!-- build:js scripts/plugins.js -->
+
+      <!-- endbuild -->
+
+      <!-- build:js scripts/main.js -->
+      <script src="scripts/main.js"></script>
+      <!-- endbuild -->
+    </body>
+    </html>

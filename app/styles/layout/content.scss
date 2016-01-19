@@ -24,45 +24,14 @@
 }
 
 .prodBuy {
-	h1 {
-		text-align: center;
-		font-size: 26px;
-		font-weight: bold;
-		color: $font-white;
-		height: 140px;
-		line-height: 140px;
-		position: relative;
-
-		.bag {
-			position: relative;
-			display: inline-block;
-
-			img {
-				margin: -10px 10px 0 0;
-			}
-
-			.count {
-				width: 18px;
-				height: 18px;
-				line-height: 18px;
-				background-color: $font-yellow;
-				border-radius: 50%;
-				position: absolute;
-				top: 75px;
-    			left: 20px;
-				font-size: 11px;
-				color: $font-black;
-			}
-		}
-	}
-
+	
 	li {
 		height: 100px;
 		line-height: 100px;
 		border-top: 2px solid $font-black-light;
 		position: relative;
 		margin: 0 20px;
-		 
+
 		.close {
 			color: $font-black;
 			opacity: 1;
@@ -165,4 +134,47 @@
 	width: 15px;
 	height: 2px;
 	background-color: $font-red;
+}
+
+.add {
+	margin-top: 0;
+	height: auto;
+	width: 100%;
+}
+
+h1 {
+	text-align: center;
+	font-size: 26px;
+	font-weight: bold;
+	color: $font-white;
+	height: 140px;
+	line-height: 140px;
+	position: relative;
+
+	.bag {
+		position: relative;
+		display: inline-block;
+
+		img {
+			margin: -10px 10px 0 0;
+		}
+
+		.count {
+			width: 18px;
+			height: 18px;
+			line-height: 18px;
+			background-color: $font-yellow;
+			border-radius: 50%;
+			position: absolute;
+			top: 75px;
+			left: 20px;
+			font-size: 11px;
+			color: $font-black;
+		}
+	}
+}
+
+.msg {
+	text-align: center;
+	color: $font-white;
 }
