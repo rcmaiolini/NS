@@ -52,12 +52,9 @@ $(document).ready( function() {
 		$('.close').click(
 			function(){
 				var getId = $(this).data('id');
-				var i = 0;
-				for(i; i < rightCollection.length; ++i){
-					if(getId == rightCollection[i].id){
-						rightCollection.splice(i,1);
-					}
-				}
+				var item = getProductByIdRightCollection(getId);
+				rightCollection.splice(item,1);
+				
 				if(rightCollection.length == 0){
 					$('.prodBuy').append('<li class="msg">Nenhum produto na sacola!</li>');
 				}
@@ -67,11 +64,25 @@ $(document).ready( function() {
 		});
 	}
 
-	function getItemByIdRightCollection(id){
+	function getProductByIdRightCollection(id){
 		var i = 0;
 		for(i; i < rightCollection.length; ++i){
-			if(getId == rightCollection[i].id){
+			if(id == rightCollection[i].id){
 				return rightCollection[i];
+			}
+		}
+	}
+
+	function addNewProduct(product){
+		rightCollection.unshift(product);
+		product.qtd = 1;
+	}
+
+	function findProductById(data, id){
+		var i = 0;
+		for(i; i < data.products.length; ++i){
+			if(id === data.products[i].id){
+				return data.products[i];
 			}
 		}
 	}
@@ -79,30 +90,23 @@ $(document).ready( function() {
 	function addProd(data) {
 		$('.add').click(function(){ 
 			var getId = $(this).data('id');
-			var i = 0;
-			for(i; i < data.products.length; ++i){
-				if(getId === data.products[i].id){
-					if(rightCollection.length){
-						var j = 0;
-						for(j; j < rightCollection.length; ++j){
-							if(getId == rightCollection[j].id){
-								data.products[i].qtd++;
-								data.products[i].sumPrice = data.products[i].qtd * data.products[i].price;
-								data.products[i].currencyPrice = Globalize.format(data.products[i].sumPrice, 'n');
-								break;
-							}else{
-								rightCollection.unshift(data.products[i]);
-								data.products[i].qtd = 1;
-								break;
-							}
-						}
-					}else{
-						rightCollection.unshift(data.products[i]);
-						data.products[i].qtd = 1;
-					}
+			var product = findProductById(data, getId);
+			if(rightCollection.length){
+				var item = getProductByIdRightCollection(getId);
+				if(item){
+					item.qtd++;
+					item.sumPrice = item.qtd * item.price;
+					item.currencyPrice = Globalize.format(item.sumPrice, 'n');
+				}else{
+					addNewProduct(product);
 				}
+			}else{
+				addNewProduct(product);
 			}
 			$(".right ul").html($("#rightProdTmpl").tmpl(rightCollection));
+
+			localStorage.setItem("list_data_key",  JSON.stringify(rightCollection));
+
 			countProd();
 			subTotal();
 			delProd(data);
@@ -136,4 +140,5 @@ $(document).ready( function() {
 		rightProd(data);
 		subTotal();
 	});
+
 });
